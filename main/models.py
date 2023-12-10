@@ -55,8 +55,10 @@ class Users(models.Model):
 class Basket(models.Model):
     id = models.AutoField(primary_key=True)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=1)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    address = models.CharField(max_length=100)
+    name = models.CharField(max_length=50, default='Не указано')
+    description = models.CharField(max_length=100, default='Не указано')
 
     class Meta:
         verbose_name = 'Товар'
